@@ -1,0 +1,1 @@
+* C:\Users\IT_ADMIN.DESKTOP-PL4LGAS\Documents\DA_Hibreed\flatten_data_table-main\flatten_config.json
