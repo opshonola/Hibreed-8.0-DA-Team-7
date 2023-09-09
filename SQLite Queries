@@ -1,0 +1,42 @@
+---Extract Outliers
+select page, round(sum(visits),0)
+FROM wiki
+GROUP BY page
+
+
+---Extract data for Criteria excluding the Main page
+select page, month, visits
+FROM wiki
+where page <> 'Main_Page_en.wikipedia.org'
+GROUP BY month, page
+ORDER BY date asc
+
+
+--Extract data for all fields excluding the Main page
+select *
+FROM wiki
+where page <> 'Main_Page_en.wikipedia.org'
+GROUP BY page, date
+ORDER BY date asc
+
+select page, sum(visits)
+FROM wiki
+where page <> 'Main_Page_en.wikipedia.org'
+GROUP BY page, visits
+ORDER BY (visits) desc
+   
+
+--Extract the Top 20 pages by number of visits
+select page, visits, page_language, access_device_type
+from wiki 
+where page not like 'Main%' 
+group by page
+order by visits desc limit 20
+
+
+---Extract data for all fields for November 8, excluding the Main page
+select *
+FROM wiki
+where page <> 'Main_Page_en.wikipedia.org' and date like '2016-11-08%'
+GROUP BY page, date
+ORDER BY date asc
